@@ -1,20 +1,17 @@
 
-GPP=g++
-PFLAGS= -std=c++0x -Wall -g
+GCC=g++
+PFLAGS=-std=c++0x -Wall -Werror -g
 
-all :  hw5_1 lab7_complete
+all: lab7
+
+lab7 : lab7_driver.cpp matrices.o
+	${GCC} ${PFLAGS} -o $@ $^
 
 %.o : %.cpp %.h
-	$(GPP) $(PFLAGS) -c -o $@ $<
+	${GCC} ${PFLAGS} -c -o $@ $<
+
+clean:
+	rm *.o lab7
 
 
-lab7_complete : lab7_complete.cpp
-	$(GPP) $(PFLAGS) -o $@ $^
-
-hw5_1 : hw5_1.cpp read_matrix.o matrices.o
-	$(GPP) $(PFLAGS) -o $@ $^
-	
-
-clean :
-	rm hw5_1 lab7_complete *.o
 

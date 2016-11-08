@@ -1,29 +1,32 @@
+
 //
 //  matrices.h
-//  hw5_1
+//  hw6_1
 //
-//  This file contains typedefs and declarations for member functions
-//  of namespace matrices.
 //
 
-#ifndef __hw5_1__matrices__
-#define __hw5_1__matrices__
+#ifndef __hw6__matrices__
+#define __hw6__matrices__
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 namespace matrices {
-    typedef vector<double> mathvec;  // type aliases for long vector templates
-    typedef vector<mathvec> mathmat;
+
+	//Create a matrix given dimensions r x c
+	void create(int ** &m, int r, int c);
+
+	void deleteMatrix(int ** &m, int r);
+
+	int ** add(int ** m1, int r1, int c1, int ** m2, int r2, int c2);
+
+	string repr(int ** m, int r, int c);
     
-    // Multiply two matrices and return the product and a flag specifying whether
-    // or not the multiplication occurred
-    int matmul(mathmat & a, mathmat & b, mathmat & result);
-    
-    // Print out the argument matrix
-    void printMatrix(mathmat &M);
 }
 
-#endif /* defined(__hw5_1__matrices__) */
+
+
+#endif /* defined(__hw6__matrices__) */
